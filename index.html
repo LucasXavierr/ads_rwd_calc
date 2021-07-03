@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        h1{
+            color: white;
+        }
+        .calculadora{
+            position: absolute;
+            background-color: black;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border-radius: 20px;
+        }
+        button{
+            margin: 4px;
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+            cursor:pointer;
+        }
+        button:hover{
+            background-color: gray;
+        }
+        #resultado{
+            background-color: white;
+            height: 30px;
+            width: 207px;
+            margin: 5px;
+            font-size: 25px;
+            color: black;
+            text-align: right;
+            padding: 5px;
+
+        }
+    </style>
+</head>
+
+<body
+    background="https://th.bing.com/th/id/R.a014f95ffad30d7b6e8692c7936aa699?rik=5VYwgcZwxAZRBw&riu=http%3a%2f%2f3.bp.blogspot.com%2f-wakzU_P7dFA%2fUo9-WE8ha3I%2fAAAAAAAAC1k%2feNnqTJc0dfE%2fs1600%2fBGAzulbyDecrepitar.png&ehk=1Y23JxyxwDKWGMC4437SGntm%2fgPXeVUGKMdNaFQABZo%3d&risl=&pid=ImgRaw">
+    <div>
+        <h1>Atividade da Semana 01/06/21</h1>
+        <div class="calculadora">
+            <h1>Calculadora</h1>
+            <p id="resultado"></p>
+            <table>
+                <tr>
+                    <td><button onclick="clean()">C</button></td>
+                    <td><button onclick="back()"><</button></td>
+                    <td><button onclick="insert('/')">/</button></td>
+                    <td><button onclick="insert('*')">X</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="insert('7')">7</button></td>
+                    <td><button onclick="insert('8')">8</button></td>
+                    <td><button onclick="insert('9')">9</button></td>
+                    <td><button onclick="insert('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="insert('4')">4</button></td>
+                    <td><button onclick="insert('5')">5</button></td>
+                    <td><button onclick="insert('6')">6</button></td>
+                    <td><button onclick="insert('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="insert('1')">1</button></td>
+                    <td><button onclick="insert('2')">2</button></td>
+                    <td><button onclick="insert('3')">3</button></td>
+                    <td rowspan="2" onclick="calcular()"><button style="height: 106px;">=</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2" onclick="insert('0')"><button style="width: 106px;">0</button></td>
+                    <td><button onclick="insert('.')">.</button></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <script>
+        function insert(num)
+        {
+            var numero = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = numero + num;
+        }
+        function clean()
+        {
+            document.getElementById('resultado').innerHTML = "";
+        }
+        function back()
+        {
+            var resultado = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length - 1)
+        }
+        function calcular()
+        {
+            var resultado = document.getElementById('resultado').innerHTML;
+            if(resultado){
+                document.getElementById('resultado').innerHTML = eval(resultado);
+            }else{
+                document.getElementById('resultado').innerHTML = "ERRO"
+            }
+        }
+    </script>
+
+</body>
+
+</html>
